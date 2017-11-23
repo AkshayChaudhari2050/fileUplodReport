@@ -1,0 +1,44 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "uniqueid": "^1.0.0"
+  },
+  "dependencies": {
+    "electron-reload": "^1.2.2",
+    "excel": "^0.1.7",
+    "excel-to-json": "^1.0.0",
+    "express": "^4.16.2",
+    "file-name": "^0.1.0",
+    "fluentreports": "^1.1.4",
+    "fs-extra": "^4.0.2",
+    "json2xls": "^0.1.2",
+    "mssql": "^4.1.0",
+    "multer": "^1.3.0",
+    "node-excel-to-json": "0.0.3",
+    "node-json2html": "^1.1.1",
+    "node-xlsx": "^0.11.0",
+    "quickly-copy-file": "^1.0.0",
+    "shortid": "^2.2.8",
+    "unique-filename": "^1.1.0",
+    "xls-to-json-lc": "^0.3.4",
+    "xlsx": "^0.11.7",
+    "xlsx-to-json-lc": "^0.5.0"
+  }
+}

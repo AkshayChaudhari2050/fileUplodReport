@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <script>
+        require('./renderer.js')
+    </script>
+    <script>
+        require('./json2xls')
+    </script>
+    <input type="button" id="btn-Readfile" value="Read File">
+    <ul id='demo'></ul>
+    <div id="list"></div>
+    <script>
+        const fs = require('fs')
+        const {
+            dialog
+        } = require('electron').remote;
+
+        var xlsx = require('node-xlsx');
+        var ipcRenderer = require('electron').ipcRenderer;
+        var path = require('path')
+        var excel2Json = require('node-excel-to-json');
+        var json2html = require('node-json2html');
+
+        document.getElementById('btn-Readfile').addEventListener("click", () => {
+
+            dialog.showOpenDialog((filename) => {
+
+                if (filename === undefined) {
+                    console.log("File Not Selected..")
+                    return
+                }
+
+                //var d = JSON.stringify(filename[0]
+                var data = path.basename(filename[0])
+                const fs = require('fs-extra')
+                // Async with promises:
+                debugger
+                fs.copy(filename[0], path.join(__dirname,'./upload/' , data))
+                    .then(() => console.log('success!'))
+                    .catch(err => console.error(err))
+
+                var data = xlsx.parse(fs.readFileSync(filename[0]))
+                excel2Json(filename[0], function (err, output) {
+                    var Jobj = JSON.stringify(output);
+
+                    alert("File SucessFully read")
+                    var obj1 = JSON.parse(Jobj);
+                    document.write('<table>')
+                    document.write('<th>Name<th>')
+                    document.write('<th>IMEI<th>')
+                    obj1["Machine List"].forEach(function (item) {
+                        document.write('<tr>')
+                        document.write('<td>', item.Name, '</td>')
+                        document.write('<td></td>')
+                        document.write('<td>', item.IMEI, '</td>')
+                    });
+                })
+            });
+        })
+    </script>
+</body>
+
+</html>

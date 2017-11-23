@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <h1>Hello World!</h1>
+
+  We are using Node.js
+  <script>
+    document.write(process.versions.node)
+  </script>, Chromium
+  <script>
+    document.write(process.versions.chrome)
+  </script>, and Electron
+  <script>
+    document.write(process.versions.electron)
+  </script>.
+
+  <script>
+    require('./renderer.js')
+  </script>
+  <br/>
+  <script>
+    require('./json2xls')
+  </script>
+  <!-- <input id="print" type="submit" onclick="getData()" value="Print To PDF" /> -->
+  <!-- <script>require('./a pp2')</script>  -->
+ 
+ <!-- <script> 
+    const {ipcRenderer} = require('electron') 
+    ipcRenderer.send('openFile', () => { 
+       console.log("Event sent."); 
+    }) 
+    
+    ipcRenderer.on('fileData', (event, data) => { 
+       document.write(data) 
+    }) 
+ </script>  -->
+
+  <!-- <form id="uploadForm" enctype="multipart/form-data" method="post">
+    <input type="file" name="file" />Upload
+    <input type="submit" onclick="getdata()" value="Upload" name="submit">
+</form> -->
+</body>
+
+</html>

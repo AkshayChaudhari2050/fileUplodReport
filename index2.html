@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Hello World</h1>
+  <input type="button" id="btn-createfile" value="Create New File">
+  <script>
+    const fs = require('fs')
+
+    const {
+      dialog
+    } = require('electron').remote;
+    document.getElementById('btn-createfile').addEventListener("click", () => {
+      let content = "Hello This Content of the New File";
+      dialog.showSaveDialog((filename) => {
+        if (filename===undefined) {
+          console.log("The User Click The Button , but dint create file")
+          return
+
+        }
+        fs.writeFile(filename,content,(err)=>{
+          if(err){
+          console.log('An Error occure',err.message)
+          }
+          alert("File SucessFully Created..")
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
